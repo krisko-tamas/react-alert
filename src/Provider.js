@@ -61,7 +61,7 @@ const Provider = ({
   }, [remove])
 
   const show = useCallback(
-    (message = '', options = {}) => {
+    (title = '', message = '', options = {}) => {
       const id = Math.random()
         .toString(36)
         .substr(2, 9)
@@ -75,6 +75,7 @@ const Provider = ({
 
       const alert = {
         id,
+		title,
         message,
         options: alertOptions
       }
@@ -100,25 +101,25 @@ const Provider = ({
   )
 
   const success = useCallback(
-    (message = '', options = {}) => {
+    (title = '', message = '', options = {}) => {
       options.type = types.SUCCESS
-      return show(message, options)
+      return show(title, message, options)
     },
     [show]
   )
 
   const error = useCallback(
-    (message = '', options = {}) => {
+    (title = '', message = '', options = {}) => {
       options.type = types.ERROR
-      return show(message, options)
+      return show(title, message, options)
     },
     [show]
   )
 
   const info = useCallback(
-    (message = '', options = {}) => {
+    (title= '', message = '', options = {}) => {
       options.type = types.INFO
-      return show(message, options)
+      return show(title, message, options)
     },
     [show]
   )
